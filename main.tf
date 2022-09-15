@@ -16,7 +16,7 @@ locals {
   }
 
   #Pass the peerings_map or an empty map to the resource, based on var.create_peerings.
-  peerings_resources = var.create_peerings ? nonsensitive(local.peerings_map) : {}
+  peerings_resources = var.create_peerings ? local.peerings_map : {}
 }
 
 resource "aviatrix_transit_gateway_peering" "peering" {
